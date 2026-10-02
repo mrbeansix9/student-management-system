@@ -1,0 +1,36 @@
+/* Custom Student Management System styling */
+
+.login-page {
+    background: linear-gradient(135deg, #0f172a, #1e3a5f);
+}
+
+.login-box {
+    width: 420px;
+}
+
+.login-logo a {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.login-card-body {
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.login-box-msg {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.login-card-body .form-control {
+    height: 46px;
+    border-radius: 8px;
+}
+
+.login-card-body .btn-primary {
+    height: 46px;
+    border-radius: 8px;
+    font-weight: 600;
+}

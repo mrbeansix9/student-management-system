@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib import messages
@@ -383,9 +384,20 @@ def add_student_save(request):
 
 
 def manage_student(request):
-    students = Students.objects.all()
+    search_query = request.GET.get('search', '').strip()
+
+    if search_query:
+        students = Students.objects.filter(
+            Q(admin__first_name__icontains=search_query) |
+            Q(admin__last_name__icontains=search_query) |
+            Q(admin__email__icontains=search_query)
+        )
+    else:
+        students = Students.objects.all()
+
     context = {
-        "students": students
+        "students": students,
+        "search_query": search_query
     }
     return render(request, 'hod_template/manage_student_template.html', context)
 
